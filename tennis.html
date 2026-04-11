@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tennis | SPORT 360&deg;</title>
+  <style>
+    :root{--bg:#07131e;--panel:rgba(9,20,32,.88);--panel-soft:rgba(255,255,255,.04);--line:rgba(255,255,255,.1);--text:#f8fafc;--muted:#cbd5e1;--accent:#84cc16;--accent-2:#fde047;--shadow:0 24px 60px rgba(0,0,0,.35)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:"Segoe UI",Tahoma,Geneva,Verdana,sans-serif;color:var(--text);background:radial-gradient(circle at top right,rgba(132,204,22,.22),transparent 24%),radial-gradient(circle at 18% 12%,rgba(253,224,71,.12),transparent 18%),linear-gradient(145deg,#020617 0%,#07131e 44%,#17321a 100%)}a{color:inherit}header,main,footer{width:min(1220px,calc(100% - 32px));margin:0 auto}header{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:24px 0}.brand{font-weight:800;letter-spacing:.08em;text-transform:uppercase}.back{text-decoration:none;color:var(--muted)}.hero,.quick-nav,.block,.search-panel{border-radius:28px;border:1px solid var(--line);background:var(--panel);box-shadow:var(--shadow)}.hero{margin:18px 0 24px;padding:34px;background:radial-gradient(circle at 84% 22%,rgba(253,224,71,.18),transparent 18%),linear-gradient(180deg,rgba(9,20,32,.94),rgba(9,20,32,.78))}.tag{display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.06);color:var(--accent-2);text-transform:uppercase;letter-spacing:.12em;font-size:.76rem}.tag::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 16px rgba(132,204,22,.6)}h1{margin:18px 0 12px;font-size:clamp(2.8rem,7vw,5rem);line-height:.95;text-shadow:0 0 24px rgba(132,204,22,.28)}h2{margin:0 0 12px;font-size:clamp(1.8rem,4vw,2.8rem)}p{color:var(--muted);line-height:1.7}.hero-note{display:inline-block;margin-top:14px;padding:8px 12px;border-radius:999px;background:rgba(253,224,71,.1);color:#fef08a;font-size:.9rem}.quick-nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;overflow:hidden;margin-bottom:24px;background:var(--line)}.quick-nav a{padding:22px 18px;text-decoration:none;background:var(--panel);transition:transform .2s ease,background .2s ease}.quick-nav a:hover{transform:translateY(-2px);background:rgba(255,255,255,.06)}.quick-nav strong{display:block;margin-bottom:8px;color:var(--accent-2);text-transform:uppercase;letter-spacing:.08em;font-size:.88rem}.layout{display:grid;gap:24px;margin-bottom:36px}.block{padding:28px}.section-head{display:flex;justify-content:space-between;gap:18px;align-items:end;margin-bottom:20px}.section-head p{max-width:760px;margin:0}.news-grid,.results-grid,.players-grid,.countries-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.card{padding:22px;border-radius:22px;background:var(--panel-soft);border:1px solid rgba(255,255,255,.08)}.card h3,.card h4{margin:0 0 10px}.meta-row,.chips{display:flex;flex-wrap:wrap;gap:10px}.chip{display:inline-flex;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.06);color:#ecfccb;font-size:.84rem}.status-live{color:#d9f99d;background:rgba(132,204,22,.14)}.status-today{color:#fef08a;background:rgba(253,224,71,.12)}.scoreline{display:flex;justify-content:space-between;align-items:center;margin:18px 0;padding:14px 0;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);font-weight:700;gap:12px}.score{font-size:1.6rem;color:var(--accent-2);white-space:nowrap}.search-panel{padding:24px;margin-bottom:18px}label{display:block;margin-bottom:8px;color:#e2e8f0;font-weight:600}input[type="search"]{width:100%;padding:14px 16px;border-radius:16px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:var(--text);outline:none;font-size:1rem}input[type="search"]::placeholder{color:#94a3b8}.career-list,.league-list{margin:14px 0 0;padding-left:18px;color:var(--muted);line-height:1.7}.country-title{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}.letter{color:var(--accent-2);font-weight:800;font-size:1.4rem}.empty-state{padding:22px;border-radius:20px;border:1px dashed rgba(255,255,255,.14);color:var(--muted)}footer{padding:0 0 36px;color:#94a3b8}
+    @media (max-width:1000px){.quick-nav,.news-grid,.results-grid,.players-grid,.countries-grid{grid-template-columns:1fr 1fr}}
+    @media (max-width:760px){header,.section-head,.scoreline{flex-direction:column;align-items:start}.hero,.block,.search-panel{padding:22px}.quick-nav,.news-grid,.results-grid,.players-grid,.countries-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">SPORT 360&deg;</div>
+    <a class="back" href="index.html">Torna alla home</a>
+  </header>
+  <main>
+    <section class="hero">
+      <span class="tag">Tennis</span>
+      <h1>Notizie, risultati, giocatori e tornei in un'unica pagina.</h1>
+      <p>Hub completo per il tennis con ultime notizie, risultati live e del giorno, ricerca giocatori con statistiche e carriera, piu una sezione tornei e nazioni filtrabile per paese, torneo o squadra nazionale.</p>
+      <div class="hero-note">Pagina strutturata per navigazione rapida e ricerca immediata.</div>
+    </section>
+    <nav class="quick-nav">
+      <a href="#notizie"><strong>Notizie</strong>Le ultime storie del tennis in evidenza</a>
+      <a href="#risultati"><strong>Risultati</strong>Live score e match del giorno</a>
+      <a href="#giocatori"><strong>Giocatori</strong>Ricerca player con statistiche e carriera</a>
+      <a href="#campionati"><strong>Campionati / Squadre</strong>Cerca paesi, tornei e nazionali</a>
+    </nav>
+    <div class="layout">
+      <section id="notizie" class="block">
+        <div class="section-head">
+          <div>
+            <h2>Notizie</h2>
+            <p>Spazio dedicato alle ultime notizie del tennis: tornei in corso, ranking, dichiarazioni post match e aggiornamenti sul circuito.</p>
+          </div>
+          <div class="chips">
+            <span class="chip">ATP</span>
+            <span class="chip">WTA</span>
+            <span class="chip">Grand Slam</span>
+          </div>
+        </div>
+        <div id="news-grid" class="news-grid"></div>
+      </section>
+      <section id="risultati" class="block">
+        <div class="section-head">
+          <div>
+            <h2>Risultati</h2>
+            <p>Qui trovi i match in diretta e i principali risultati del giorno con stato dell'incontro, punteggi e breve contesto.</p>
+          </div>
+          <div class="chips">
+            <span class="chip status-live">Live</span>
+            <span class="chip status-today">Oggi</span>
+          </div>
+        </div>
+        <div id="results-grid" class="results-grid"></div>
+      </section>
+      <section id="giocatori" class="block">
+        <div class="section-head">
+          <div>
+            <h2>Giocatori</h2>
+            <p>Cerca un giocatore per vedere mano dominante, nazionalita, ranking, statistiche e carriera.</p>
+          </div>
+        </div>
+        <div class="search-panel">
+          <label for="player-search">Cerca giocatori</label>
+          <input id="player-search" type="search" placeholder="Esempio: Sinner, Swiatek, Spagna, mancino, top 10">
+        </div>
+        <div id="players-grid" class="players-grid"></div>
+      </section>
+      <section id="campionati" class="block">
+        <div class="section-head">
+          <div>
+            <h2>Campionati / Squadre</h2>
+            <p>Cerca nazioni, tornei, eventi a squadre o semplicemente un paese. Se selezioni il paese trovi i principali campionati professionistici, giovanili e le competizioni a squadre collegate.</p>
+          </div>
+        </div>
+        <div class="search-panel">
+          <label for="league-search">Cerca nazioni, tornei o squadre nazionali</label>
+          <input id="league-search" type="search" placeholder="Esempio: Italia, Wimbledon, Davis Cup, Spagna, Under 18">
+        </div>
+        <div id="countries-grid" class="countries-grid"></div>
+      </section>
+    </div>
+  </main>
+  <footer>&copy; 2026 SPORT 360&deg;</footer>
+  <script>
+    const newsItems=[{title:"Verso il prossimo Masters 1000: i favoriti del tabellone",excerpt:"Focus sui protagonisti piu attesi, sulle possibili sorprese e sugli incroci da seguire nel torneo.",category:"ATP",label:"Preview"},{title:"Circuito WTA: corsa al ranking e forma del momento",excerpt:"Analisi sulle giocatrici piu in forma, sul ranking live e sui punti chiave della settimana.",category:"WTA",label:"Ranking"},{title:"Road to Slam: come arrivano i big ai grandi appuntamenti",excerpt:"Condizione fisica, superfici preferite e risultati recenti dei nomi piu forti del circuito.",category:"Grand Slam",label:"Top story"}];
+    const results=[{tournament:"Monte-Carlo Masters",status:"Live 3Â° set",playerOne:"Jannik Sinner",playerTwo:"Carlos Alcaraz",score:"6-4 3-6 4-2",note:"Scambio intenso da fondo campo e match in pieno equilibrio nel set decisivo."},{tournament:"WTA Stuttgart",status:"Live 2Â° set",playerOne:"Iga Swiatek",playerTwo:"Aryna Sabalenka",score:"7-5 2-1",note:"Partita di alto livello con break e controbreak nelle prime fasi del secondo set."},{tournament:"ATP Barcellona",status:"Oggi 18:30",playerOne:"Stefanos Tsitsipas",playerTwo:"Casper Ruud",score:"vs",note:"Sfida del giorno sulla terra rossa con attenzione al rendimento nelle ultime settimane."},{tournament:"Billie Jean King Cup",status:"Oggi 16:00",playerOne:"Italia",playerTwo:"Francia",score:"vs",note:"Incontro a squadre con singolari e doppio decisivi per la qualificazione."}];
+    const players=[{name:"Jannik Sinner",hand:"Destro",nation:"Italia",ranking:"Ranking ATP: 1",stats:["Titoli: 15","Vittorie 2026: 26","Ace medi: 8"],career:["Challenger Circuit","Top 20 ATP","Top 10 ATP","Campione Slam","Numero 1 ATP"]},{name:"Carlos Alcaraz",hand:"Destro",nation:"Spagna",ranking:"Ranking ATP: 2",stats:["Titoli: 17","Vittorie 2026: 24","Break point salvati: 67%"],career:["ATP Next Gen","Masters 1000","Campione Slam","Numero 1 ATP"]},{name:"Novak Djokovic",hand:"Destro",nation:"Serbia",ranking:"Ranking ATP: 5",stats:["Titoli: 98","Vittorie 2026: 18","Percentuale prime: 66%"],career:["Top 10 ATP","Numero 1 ATP","Campione Masters","Campione Slam"]},{name:"Iga Swiatek",hand:"Destra",nation:"Polonia",ranking:"Ranking WTA: 1",stats:["Titoli: 22","Vittorie 2026: 28","Game vinti in risposta: 44%"],career:["Top 10 WTA","Numero 1 WTA","Campionessa Slam"]},{name:"Aryna Sabalenka",hand:"Destra",nation:"Bielorussia",ranking:"Ranking WTA: 2",stats:["Titoli: 15","Ace medi: 7","Vittorie 2026: 23"],career:["Top 10 WTA","Campionessa Slam","Finals WTA"]},{name:"Coco Gauff",hand:"Destra",nation:"Stati Uniti",ranking:"Ranking WTA: 3",stats:["Titoli: 9","Vittorie 2026: 21","Punti vinti in risposta: 41%"],career:["Top 10 WTA","Campionessa 1000","Campionessa Slam"]},{name:"Daniil Medvedev",hand:"Destro",nation:"Russia",ranking:"Ranking ATP: 6",stats:["Titoli: 21","Vittorie 2026: 19","Tie-break vinti: 73%"],career:["Top 10 ATP","Numero 1 ATP","Campione Slam"]},{name:"Elena Rybakina",hand:"Destra",nation:"Kazakistan",ranking:"Ranking WTA: 5",stats:["Titoli: 8","Ace medi: 6","Vittorie 2026: 18"],career:["Top 10 WTA","Campionessa Slam","Finals WTA"]},{name:"Lorenzo Musetti",hand:"Destro",nation:"Italia",ranking:"Ranking ATP: 14",stats:["Titoli: 3","Vittorie 2026: 17","Punti vinti a rete: 69%"],career:["Challenger Circuit","Top 20 ATP","Titolo ATP 500"]}];
+    const countries=[{country:"Australia",letter:"A",nationalTeam:"Australia",leagues:["Australian Open","United Cup","Australian Pro Tour","18/u Australian Championships"],teams:["Davis Cup Australia","Billie Jean King Cup Australia"]},{country:"Austria",letter:"A",nationalTeam:"Austria",leagues:["Generali Open Kitzbuhel","Austrian National Championships","Austrian Junior Tour"],teams:["Davis Cup Austria","Billie Jean King Cup Austria"]},{country:"Belgio",letter:"B",nationalTeam:"Belgio",leagues:["Belgian Open Events","Belgian National Championships","Junior Belgian Circuit"],teams:["Davis Cup Belgio","Billie Jean King Cup Belgio"]},{country:"Canada",letter:"C",nationalTeam:"Canada",leagues:["National Bank Open","Granby Challenger","Canadian Junior Nationals"],teams:["Davis Cup Canada","Billie Jean King Cup Canada"]},{country:"Croazia",letter:"C",nationalTeam:"Croazia",leagues:["Croatia Open Umag","Croatian Nationals","Junior Croatia Tour"],teams:["Davis Cup Croazia","Billie Jean King Cup Croazia"]},{country:"Francia",letter:"F",nationalTeam:"Francia",leagues:["Roland-Garros","Open Sud de France","French Championships","Junior French Open"],teams:["Davis Cup Francia","Billie Jean King Cup Francia"]},{country:"Germania",letter:"G",nationalTeam:"Germania",leagues:["Hamburg European Open","Halle Open","German Nationals","German Junior Series"],teams:["Davis Cup Germania","Billie Jean King Cup Germania"]},{country:"Gran Bretagna",letter:"G",nationalTeam:"Gran Bretagna",leagues:["Wimbledon","Queen's Club Championships","British Tour","Junior National Championships"],teams:["Davis Cup Great Britain","Billie Jean King Cup Great Britain"]},{country:"Italia",letter:"I",nationalTeam:"Italia",leagues:["Internazionali BNL d'Italia","ATP Finals Torino","Tennis Europe Italy","Campionati Italiani Under 18"],teams:["Davis Cup Italia","Billie Jean King Cup Italia"]},{country:"Giappone",letter:"J",nationalTeam:"Giappone",leagues:["Japan Open","Toray Pan Pacific Open","All Japan Championships","National Junior Tour"],teams:["Davis Cup Giappone","Billie Jean King Cup Giappone"]},{country:"Kazakhstan",letter:"K",nationalTeam:"Kazakistan",leagues:["Astana Open","Kazakh Nationals","Junior Kazakhstan Series"],teams:["Davis Cup Kazakistan","Billie Jean King Cup Kazakistan"]},{country:"Paesi Bassi",letter:"N",nationalTeam:"Paesi Bassi",leagues:["ABN AMRO Open","Libema Open","Dutch Championships","Dutch Junior Tour"],teams:["Davis Cup Paesi Bassi","Billie Jean King Cup Paesi Bassi"]},{country:"Polonia",letter:"P",nationalTeam:"Polonia",leagues:["Polish Open Events","Polish Nationals","Polish Junior Circuit"],teams:["Davis Cup Polonia","Billie Jean King Cup Polonia"]},{country:"Serbia",letter:"S",nationalTeam:"Serbia",leagues:["Belgrade Open","Serbian Nationals","Serbian Junior Tour"],teams:["Davis Cup Serbia","Billie Jean King Cup Serbia"]},{country:"Spagna",letter:"S",nationalTeam:"Spagna",leagues:["Mutua Madrid Open","Barcelona Open","Spanish Nationals","Spanish Junior Tour"],teams:["Davis Cup Spagna","Billie Jean King Cup Spagna"]},{country:"Stati Uniti",letter:"U",nationalTeam:"USA",leagues:["US Open","Indian Wells","Miami Open","USTA National Championships","USTA Under 18"],teams:["Davis Cup USA","Billie Jean King Cup USA"]}];
+    const playerSearch=document.getElementById("player-search");
+    const leagueSearch=document.getElementById("league-search");
+    const playersGrid=document.getElementById("players-grid");
+    const countriesGrid=document.getElementById("countries-grid");
+    const resultsGrid=document.getElementById("results-grid");
+    const newsGrid=document.getElementById("news-grid");
+    const escapeHtml=(v)=>String(v).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#39;");
+    const renderNews=()=>{newsGrid.innerHTML=newsItems.map((item)=>`<article class="card"><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.excerpt)}</p><div class="meta-row"><span class="chip">${escapeHtml(item.category)}</span><span class="chip">${escapeHtml(item.label)}</span></div></article>`).join("")};
+    const renderResults=()=>{resultsGrid.innerHTML=results.map((match)=>{const live=match.status.toLowerCase().includes("live");return `<article class="card"><div class="chips"><span class="chip ${live?"status-live":"status-today"}">${escapeHtml(match.status)}</span><span class="chip">${escapeHtml(match.tournament)}</span></div><div class="scoreline"><span>${escapeHtml(match.playerOne)}</span><span class="score">${escapeHtml(match.score)}</span><span>${escapeHtml(match.playerTwo)}</span></div><p>${escapeHtml(match.note)}</p></article>`;}).join("")};
+    const renderPlayers=(query="")=>{const normalized=query.trim().toLowerCase();const filtered=players.filter((player)=>[player.name,player.hand,player.nation,player.ranking,...player.stats,...player.career].join(" ").toLowerCase().includes(normalized));playersGrid.innerHTML=filtered.length?filtered.map((player)=>`<article class="card"><h3>${escapeHtml(player.name)}</h3><div class="chips"><span class="chip">${escapeHtml(player.hand)}</span><span class="chip">${escapeHtml(player.nation)}</span><span class="chip">${escapeHtml(player.ranking)}</span></div><div class="chips" style="margin-top:14px;">${player.stats.map((stat)=>`<span class="chip">${escapeHtml(stat)}</span>`).join("")}</div><ul class="career-list">${player.career.map((step)=>`<li>${escapeHtml(step)}</li>`).join("")}</ul></article>`).join(""):'<div class="empty-state">Nessun giocatore trovato. Prova con nome, nazione, mano dominante o ranking.</div>';};
+    const renderCountries=(query="")=>{const normalized=query.trim().toLowerCase();const filtered=countries.filter((country)=>[country.country,country.nationalTeam,...country.leagues,...country.teams].join(" ").toLowerCase().includes(normalized));countriesGrid.innerHTML=filtered.length?filtered.map((country)=>`<article class="card"><div class="country-title"><h3>${escapeHtml(country.country)}</h3><span class="letter">${escapeHtml(country.letter)}</span></div><div class="chips"><span class="chip">Nazionale: ${escapeHtml(country.nationalTeam)}</span></div><h4 style="margin-top:16px;">Campionati</h4><ul class="league-list">${country.leagues.map((league)=>`<li>${escapeHtml(league)}</li>`).join("")}</ul><h4 style="margin-top:16px;">Squadre / Eventi nazionali</h4><div class="chips">${country.teams.map((team)=>`<span class="chip">${escapeHtml(team)}</span>`).join("")}</div></article>`).join(""):'<div class="empty-state">Nessuna nazione o torneo trovato. Prova con un paese, un torneo o una competizione a squadre.</div>';};
+    playerSearch.addEventListener("input",(event)=>renderPlayers(event.target.value));
+    leagueSearch.addEventListener("input",(event)=>renderCountries(event.target.value));
+    renderNews();
+    renderResults();
+    renderPlayers();
+    renderCountries();
+  </script>
+</body>
+</html>

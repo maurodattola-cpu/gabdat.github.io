@@ -378,7 +378,7 @@
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 18px;
     }
 
@@ -510,6 +510,134 @@
       color: #94a3b8;
     }
 
+    .feedback-summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 26px;
+    }
+
+    .summary-card,
+    .review-panel {
+      padding: 22px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .summary-card strong,
+    .review-panel strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #e2e8f0;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.86rem;
+    }
+
+    .summary-score {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      color: #facc15;
+      text-shadow: 0 0 18px rgba(250, 204, 21, 0.28);
+    }
+
+    .summary-meta {
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .review-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .review-filter {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      cursor: pointer;
+      font: inherit;
+      transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .review-filter:hover {
+      transform: translateY(-1px);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .review-filter.active {
+      background: rgba(56, 189, 248, 0.14);
+      border-color: rgba(56, 189, 248, 0.36);
+    }
+
+    .reviews-list {
+      display: grid;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .review-card {
+      padding: 20px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .review-top,
+    .review-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .review-meta {
+      margin-top: 10px;
+      color: #94a3b8;
+      font-size: 0.92rem;
+      flex-wrap: wrap;
+    }
+
+    .review-stars {
+      color: #facc15;
+      letter-spacing: 0.08em;
+      text-shadow: 0 0 14px rgba(250, 204, 21, 0.2);
+    }
+
+    .review-tag {
+      display: inline-flex;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .review-tag.good {
+      color: #bbf7d0;
+      background: rgba(34, 197, 94, 0.14);
+    }
+
+    .review-tag.bad {
+      color: #fecaca;
+      background: rgba(239, 68, 68, 0.14);
+    }
+
+    .review-tag.neutral {
+      color: #cbd5e1;
+    }
+
+    .empty-reviews {
+      padding: 20px;
+      border-radius: 18px;
+      border: 1px dashed rgba(255, 255, 255, 0.14);
+      color: var(--muted);
+    }
+
     footer {
       padding: 28px 20px 44px;
       text-align: center;
@@ -589,6 +717,12 @@
         width: 68px;
         height: 68px;
       }
+
+      .review-top,
+      .review-meta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -624,10 +758,10 @@
     </div>
 
     <div class="hero-panel">
-      <div class="eyebrow">SPORT 360°</div>
+      <div class="eyebrow">SPORT 360Â°</div>
       <div class="hero-grid">
         <div>
-          <h1>SPORT 360°</h1>
+          <h1>SPORT 360Â°</h1>
           <p>
             Ho trasformato la hero in una scena piu dinamica con elementi ispirati
             allo sport: movimenti fluidi, glow da scoreboard e accenti visivi che
@@ -670,7 +804,7 @@
   <section id="servizi" class="section">
     <h2>Servizi</h2>
     <p class="section-copy">
-      I servizi ora raccontano tre ambiti sportivi con una presentazione piu diretta,
+      I servizi ora raccontano due ambiti sportivi con una presentazione piu diretta,
       dinamica e coerente con il taglio visivo della pagina.
     </p>
     <div class="cards">
@@ -684,11 +818,6 @@
         <h3>Calcio</h3>
         <p>Contenuti coinvolgenti per squadre, eventi e fan experience con forte impatto visivo.</p>
       </a>
-      <a class="card" href="nuoto.html">
-        <div class="card-badge">03</div>
-        <h3>Nuoto</h3>
-        <p>Animazioni fluide e atmosfere acquatiche per valorizzare gare, corsi e brand sportivi.</p>
-      </a>
     </div>
   </section>
 
@@ -696,30 +825,209 @@
     <div class="feedback-box">
       <h2>Feedback</h2>
       <p>
-        Cliccando su una stella, chi visita la pagina puo lasciare una recensione da 1 a 5 stelle
-        e scrivere un commento veloce.
+        Cliccando su una stella, chi visita la pagina puo lasciare una recensione da 1 a 5 stelle,
+        vedere la valutazione totale del sito e leggere i commenti dal piu recente al piu vecchio.
       </p>
       <form class="feedback-form">
         <div class="star-rating" aria-label="Valutazione da 1 a 5 stelle">
           <input type="radio" id="star5" name="rating" value="5">
-          <label for="star5" title="5 stelle">★</label>
+          <label for="star5" title="5 stelle">&#9733;</label>
           <input type="radio" id="star4" name="rating" value="4">
-          <label for="star4" title="4 stelle">★</label>
+          <label for="star4" title="4 stelle">&#9733;</label>
           <input type="radio" id="star3" name="rating" value="3">
-          <label for="star3" title="3 stelle">★</label>
+          <label for="star3" title="3 stelle">&#9733;</label>
           <input type="radio" id="star2" name="rating" value="2">
-          <label for="star2" title="2 stelle">★</label>
+          <label for="star2" title="2 stelle">&#9733;</label>
           <input type="radio" id="star1" name="rating" value="1">
-          <label for="star1" title="1 stella">★</label>
+          <label for="star1" title="1 stella">&#9733;</label>
         </div>
         <textarea placeholder="Scrivi qui la tua recensione..."></textarea>
         <button class="btn primary" type="submit">Invia feedback</button>
       </form>
+      <div class="feedback-summary">
+        <div class="summary-card">
+          <strong>Valutazione Totale</strong>
+          <div id="feedback-average" class="summary-score">0.0 / 5</div>
+          <div id="feedback-average-stars" class="summary-meta">Nessuna recensione disponibile.</div>
+        </div>
+        <div class="summary-card">
+          <strong>Panoramica</strong>
+          <div id="feedback-count" class="summary-meta">0 recensioni registrate</div>
+          <div id="feedback-breakdown" class="summary-meta">Le recensioni belle e brutte compariranno qui.</div>
+        </div>
+      </div>
+      <div class="review-panel">
+        <strong>Commenti</strong>
+        <p>I commenti vengono mostrati dal piu recente al piu vecchio e puoi filtrarli per tipo di recensione.</p>
+        <div class="review-toolbar" id="review-filters">
+          <button class="review-filter active" type="button" data-filter="all">Tutte</button>
+          <button class="review-filter" type="button" data-filter="good">Recensioni belle</button>
+          <button class="review-filter" type="button" data-filter="bad">Recensioni brutte</button>
+        </div>
+        <div id="reviews-list" class="reviews-list"></div>
+      </div>
     </div>
   </section>
 
   <footer>
     &copy; 2026 Mauro - All rights reserved
   </footer>
+  <script>
+    const feedbackForm = document.querySelector(".feedback-form");
+    const feedbackTextarea = feedbackForm.querySelector("textarea");
+    const feedbackAverage = document.getElementById("feedback-average");
+    const feedbackAverageStars = document.getElementById("feedback-average-stars");
+    const feedbackCount = document.getElementById("feedback-count");
+    const feedbackBreakdown = document.getElementById("feedback-breakdown");
+    const reviewsList = document.getElementById("reviews-list");
+    const reviewFilters = document.getElementById("review-filters");
+    const feedbackStorageKey = "sport360-feedbacks";
+    let activeReviewFilter = "all";
+
+    const defaultFeedbacks = [
+      { rating: 5, comment: "Grafica molto bella e pagina chiara da usare.", createdAt: "2026-04-11T17:40:00.000Z" },
+      { rating: 2, comment: "Buona idea, ma vorrei ancora piu dettagli nei contenuti.", createdAt: "2026-04-10T15:15:00.000Z" },
+      { rating: 4, comment: "Sezione sportiva interessante e semplice da navigare.", createdAt: "2026-04-09T12:00:00.000Z" }
+    ];
+
+    const escapeHtml = (value) =>
+      String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#39;");
+
+    const formatReviewDate = (value) =>
+      new Intl.DateTimeFormat("it-IT", { dateStyle: "medium", timeStyle: "short" }).format(new Date(value));
+
+    const getReviewCategory = (rating) => {
+      if (rating >= 4) return "good";
+      if (rating <= 2) return "bad";
+      return "neutral";
+    };
+
+    const getReviewCategoryLabel = (rating) => {
+      const category = getReviewCategory(rating);
+      if (category === "good") return "Recensione bella";
+      if (category === "bad") return "Recensione brutta";
+      return "Recensione neutra";
+    };
+
+    const getStoredFeedbacks = () => {
+      try {
+        const raw = window.localStorage.getItem(feedbackStorageKey);
+        if (!raw) {
+          window.localStorage.setItem(feedbackStorageKey, JSON.stringify(defaultFeedbacks));
+          return [...defaultFeedbacks];
+        }
+
+        const parsed = JSON.parse(raw);
+        return Array.isArray(parsed) ? parsed : [...defaultFeedbacks];
+      } catch (error) {
+        return [...defaultFeedbacks];
+      }
+    };
+
+    const saveFeedbacks = (items) => {
+      window.localStorage.setItem(feedbackStorageKey, JSON.stringify(items));
+    };
+
+    const renderFeedbackSummary = (items) => {
+      if (!items.length) {
+        feedbackAverage.textContent = "0.0 / 5";
+        feedbackAverageStars.textContent = "Nessuna recensione disponibile.";
+        feedbackCount.textContent = "0 recensioni registrate";
+        feedbackBreakdown.textContent = "Le recensioni belle e brutte compariranno qui.";
+        return;
+      }
+
+      const average = items.reduce((sum, item) => sum + item.rating, 0) / items.length;
+      const goodCount = items.filter((item) => getReviewCategory(item.rating) === "good").length;
+      const badCount = items.filter((item) => getReviewCategory(item.rating) === "bad").length;
+      const roundedStars = Math.round(average);
+
+      feedbackAverage.textContent = `${average.toFixed(1)} / 5`;
+      feedbackAverageStars.textContent = `${"★".repeat(roundedStars)}${"☆".repeat(5 - roundedStars)} media generale dai feedback`;
+      feedbackCount.textContent = `${items.length} recensioni registrate`;
+      feedbackBreakdown.textContent = `${goodCount} recensioni belle, ${badCount} recensioni brutte`;
+    };
+
+    const renderReviews = () => {
+      const items = getStoredFeedbacks()
+        .slice()
+        .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
+      renderFeedbackSummary(items);
+
+      const filteredItems = items.filter((item) => {
+        if (activeReviewFilter === "all") return true;
+        return getReviewCategory(item.rating) === activeReviewFilter;
+      });
+
+      if (!filteredItems.length) {
+        reviewsList.innerHTML = '<div class="empty-reviews">Nessun commento disponibile per questo filtro.</div>';
+        return;
+      }
+
+      reviewsList.innerHTML = filteredItems
+        .map((item) => {
+          const category = getReviewCategory(item.rating);
+          return `
+            <article class="review-card">
+              <div class="review-top">
+                <div class="review-stars">${"★".repeat(item.rating)}${"☆".repeat(5 - item.rating)}</div>
+                <span class="review-tag ${category}">${getReviewCategoryLabel(item.rating)}</span>
+              </div>
+              <div class="review-meta">
+                <span>${formatReviewDate(item.createdAt)}</span>
+                <span>${item.rating} / 5 stelle</span>
+              </div>
+              <p>${escapeHtml(item.comment)}</p>
+            </article>
+          `;
+        })
+        .join("");
+    };
+
+    feedbackForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const selectedRating = feedbackForm.querySelector('input[name="rating"]:checked');
+      const comment = feedbackTextarea.value.trim();
+
+      if (!selectedRating || !comment) {
+        window.alert("Seleziona una valutazione da 1 a 5 stelle e scrivi un commento.");
+        return;
+      }
+
+      const nextItems = getStoredFeedbacks();
+      nextItems.push({
+        rating: Number(selectedRating.value),
+        comment,
+        createdAt: new Date().toISOString()
+      });
+
+      saveFeedbacks(nextItems);
+      feedbackForm.reset();
+      activeReviewFilter = "all";
+      reviewFilters.querySelectorAll(".review-filter").forEach((button) => {
+        button.classList.toggle("active", button.dataset.filter === "all");
+      });
+      renderReviews();
+    });
+
+    reviewFilters.addEventListener("click", (event) => {
+      const button = event.target.closest(".review-filter");
+      if (!button) return;
+
+      activeReviewFilter = button.dataset.filter;
+      reviewFilters.querySelectorAll(".review-filter").forEach((item) => {
+        item.classList.toggle("active", item === button);
+      });
+      renderReviews();
+    });
+
+    renderReviews();
+  </script>
 </body>
 </html>
