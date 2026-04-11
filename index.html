@@ -83,7 +83,27 @@
   </nav>
 </header>
 
-<section class="hero">
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 120px 20px;
+  background: url('https://images.unsplash.com/photo-1508098682722-e99c643e7485') center/cover no-repeat;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(2, 6, 23, 0.8);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
   <h1>Digital Experience & Signage</h1>
   <p>Soluzioni digitali, DOOH e innovazione</p>
   <a class="btn" href="#contatti">Contattami</a>
