@@ -1,16 +1,17 @@
 window.SPORT360_CONFIG = {
-  // Inserisci qui l'URL del tuo proxy/serverless che chiama Sportmonks lato server.
+  // Inserisci qui l'URL del tuo proxy/serverless che chiama API-Football lato server.
   // Non mettere la chiave API direttamente nel browser.
-  proxyUrl: "https://your-domain.example.com/api/sportmonks/livescores?mode=all",
+  proxyUrl: "https://your-domain.example.com/api/sportmonks/livescores",
 
   // Route dedicata per le notizie reali pre-match e post-match.
   newsProxyUrl: "https://your-domain.example.com/api/sportmonks/news?type=mixed",
 
-  // Etichetta mostrata nella UI.
-  providerLabel: "Sportmonks",
+  // Etichette mostrate nella UI.
+  resultsProviderLabel: "API-Football",
+  newsProviderLabel: "Sportmonks",
 
   // Intervallo di refresh in millisecondi.
-  pollMs: 60000,
+  pollMs: 3600000,
 
   // Timeout della chiamata fetch in millisecondi.
   timeoutMs: 12000
