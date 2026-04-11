@@ -1,0 +1,1 @@
+{"name": "gabdat","version": "1.0.0","description": "Node.js server setup for Express with CORS","main": "index.js","scripts": {"start": "node index.js"},"dependencies": {"express": "^4.17.1","cors": "^2.8.5"}}
