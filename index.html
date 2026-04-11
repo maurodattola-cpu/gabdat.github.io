@@ -1,10 +1,109 @@
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
-  <title>Il mio sito</title>
+  <meta charset="UTF-8">
+  <title>Mauro | Digital Experience</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 40px;
+      background: #020617;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .hero h1 {
+      font-size: 50px;
+    }
+
+    .hero p {
+      color: #94a3b8;
+    }
+
+    .btn {
+      background: #3b82f6;
+      padding: 12px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: white;
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+    .section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .card {
+      background: #1e293b;
+      padding: 20px;
+      margin: 10px;
+      border-radius: 10px;
+      display: inline-block;
+      width: 250px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #020617;
+      color: #64748b;
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Benvenuto nel mio sito 🚀</h1>
-  <p>Creato da Mauro</p>
+
+<header>
+  <h2>Mauro</h2>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#servizi">Servizi</a>
+    <a href="#contatti">Contatti</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Digital Experience & Signage</h1>
+  <p>Soluzioni digitali, DOOH e innovazione</p>
+  <a class="btn" href="#contatti">Contattami</a>
+</section>
+
+<section id="servizi" class="section">
+  <h2>Servizi</h2>
+  <div class="card">Digital Signage</div>
+  <div class="card">DOOH Solutions</div>
+  <div class="card">UX & Digital Experience</div>
+</section>
+
+<section id="contatti" class="section">
+  <h2>Contatti</h2>
+  <p>Email: tuo@email.com</p>
+</section>
+
+<footer>
+  © 2026 Mauro - All rights reserved
+</footer>
+
 </body>
 </html>
