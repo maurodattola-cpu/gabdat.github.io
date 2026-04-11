@@ -6,28 +6,44 @@
   <title>Calcio | SPORT 360&deg;</title>
   <style>
     :root {
-      --bg: #08111f;
-      --panel: rgba(7, 17, 31, 0.84);
+      --bg: #061019;
+      --panel: rgba(8, 18, 30, 0.88);
+      --panel-soft: rgba(255, 255, 255, 0.04);
       --line: rgba(255, 255, 255, 0.1);
       --text: #f8fafc;
       --muted: #cbd5e1;
       --accent: #22c55e;
-      --accent-soft: #86efac;
+      --accent-2: #86efac;
+      --accent-3: #38bdf8;
       --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(34, 197, 94, 0.2), transparent 25%),
-        linear-gradient(145deg, #020617 0%, #08111f 45%, #0f5132 100%);
+        radial-gradient(circle at top left, rgba(34, 197, 94, 0.22), transparent 24%),
+        radial-gradient(circle at 82% 18%, rgba(56, 189, 248, 0.16), transparent 18%),
+        linear-gradient(145deg, #020617 0%, #061019 44%, #0f5132 100%);
     }
 
-    header, main, footer {
-      width: min(1100px, calc(100% - 32px));
+    a {
+      color: inherit;
+    }
+
+    header,
+    main,
+    footer {
+      width: min(1220px, calc(100% - 32px));
       margin: 0 auto;
     }
 
@@ -35,17 +51,25 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 16px;
       padding: 24px 0;
     }
 
-    a { color: inherit; }
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
 
     .back {
       text-decoration: none;
       color: var(--muted);
     }
 
-    .hero, .stats, .story {
+    .hero,
+    .quick-nav,
+    .block,
+    .search-panel {
       border-radius: 28px;
       border: 1px solid var(--line);
       background: var(--panel);
@@ -53,29 +77,45 @@
     }
 
     .hero {
-      padding: 36px;
-      margin: 24px 0 22px;
+      margin: 18px 0 24px;
+      padding: 34px;
       background:
-        radial-gradient(circle at 88% 22%, rgba(134, 239, 172, 0.18), transparent 18%),
-        var(--panel);
+        radial-gradient(circle at 84% 22%, rgba(134, 239, 172, 0.16), transparent 18%),
+        linear-gradient(180deg, rgba(8, 18, 30, 0.94), rgba(8, 18, 30, 0.78));
     }
 
     .tag {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       padding: 8px 14px;
       border-radius: 999px;
       background: rgba(255, 255, 255, 0.06);
-      color: var(--accent-soft);
+      color: var(--accent-2);
       text-transform: uppercase;
       letter-spacing: 0.12em;
       font-size: 0.76rem;
     }
 
+    .tag::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 16px rgba(34, 197, 94, 0.6);
+    }
+
     h1 {
       margin: 18px 0 12px;
-      font-size: clamp(2.6rem, 7vw, 5rem);
+      font-size: clamp(2.8rem, 7vw, 5rem);
       line-height: 0.95;
-      text-shadow: 0 0 24px rgba(34, 197, 94, 0.32);
+      text-shadow: 0 0 24px rgba(34, 197, 94, 0.28);
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
     }
 
     p {
@@ -83,90 +123,645 @@
       line-height: 1.7;
     }
 
-    .stats {
+    .hero-note {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.12);
+      color: #dbeafe;
+      font-size: 0.9rem;
+    }
+
+    .quick-nav {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      overflow: hidden;
+      margin-bottom: 24px;
+      background: var(--line);
+    }
+
+    .quick-nav a {
+      padding: 22px 18px;
+      text-decoration: none;
+      background: var(--panel);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .quick-nav a:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .quick-nav strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--accent-2);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.88rem;
+    }
+
+    .layout {
+      display: grid;
+      gap: 24px;
+      margin-bottom: 36px;
+    }
+
+    .block {
+      padding: 28px;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: end;
+      margin-bottom: 20px;
+    }
+
+    .section-head p {
+      max-width: 760px;
+      margin: 0;
+    }
+
+    .news-grid,
+    .results-grid,
+    .players-grid,
+    .countries-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0;
-      overflow: hidden;
-      margin-bottom: 22px;
+      gap: 18px;
     }
 
-    .stat {
+    .card {
+      padding: 22px;
+      border-radius: 22px;
+      background: var(--panel-soft);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .card h3,
+    .card h4 {
+      margin: 0 0 10px;
+    }
+
+    .meta-row,
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .chip {
+      display: inline-flex;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      color: #dbeafe;
+      font-size: 0.84rem;
+    }
+
+    .status-live {
+      color: #bbf7d0;
+      background: rgba(34, 197, 94, 0.12);
+    }
+
+    .status-today {
+      color: #bfdbfe;
+      background: rgba(56, 189, 248, 0.12);
+    }
+
+    .scoreline {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 18px 0;
+      padding: 14px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      font-weight: 700;
+      gap: 12px;
+    }
+
+    .score {
+      font-size: 1.8rem;
+      color: var(--accent-2);
+      white-space: nowrap;
+    }
+
+    .search-panel {
       padding: 24px;
-      border-right: 1px solid var(--line);
+      margin-bottom: 18px;
     }
 
-    .stat:last-child {
-      border-right: 0;
-    }
-
-    .stat strong {
+    label {
       display: block;
-      font-size: 2rem;
       margin-bottom: 8px;
-      color: var(--accent-soft);
+      color: #e2e8f0;
+      font-weight: 600;
     }
 
-    .story {
-      padding: 28px;
-      margin-bottom: 40px;
+    input[type="search"] {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      outline: none;
+      font-size: 1rem;
     }
 
-    footer {
-      padding: 0 0 34px;
+    input[type="search"]::placeholder {
       color: #94a3b8;
     }
 
-    @media (max-width: 860px) {
-      .stats { grid-template-columns: 1fr; }
-      .stat { border-right: 0; border-bottom: 1px solid var(--line); }
-      .stat:last-child { border-bottom: 0; }
-      .hero, .story { padding: 24px; }
-      header { flex-direction: column; gap: 12px; }
+    .career-list,
+    .league-list {
+      margin: 14px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .country-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .letter {
+      color: var(--accent-2);
+      font-weight: 800;
+      font-size: 1.4rem;
+    }
+
+    .empty-state {
+      padding: 22px;
+      border-radius: 20px;
+      border: 1px dashed rgba(255, 255, 255, 0.14);
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 0 0 36px;
+      color: #94a3b8;
+    }
+
+    @media (max-width: 1000px) {
+      .quick-nav,
+      .news-grid,
+      .results-grid,
+      .players-grid,
+      .countries-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      header,
+      .section-head,
+      .scoreline {
+        flex-direction: column;
+        align-items: start;
+      }
+
+      .hero,
+      .block,
+      .search-panel {
+        padding: 22px;
+      }
+
+      .quick-nav,
+      .news-grid,
+      .results-grid,
+      .players-grid,
+      .countries-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <strong>SPORT 360&deg;</strong>
+    <div class="brand">SPORT 360&deg;</div>
     <a class="back" href="index.html">Torna alla home</a>
   </header>
 
   <main>
     <section class="hero">
       <span class="tag">Calcio</span>
-      <h1>Emozione da stadio, resa digitale.</h1>
+      <h1>Notizie, risultati, calciatori e campionati in un'unica pagina.</h1>
       <p>
-        Una pagina dedicata al calcio con accenti forti, ritmo visivo e contenuti pensati
-        per club, academy, media sportivi e fan experience.
+        Ho trasformato la sezione calcio in un hub completo: ultime notizie, risultati live e del giorno,
+        ricerca calciatori con statistiche e carriera, piu una sezione campionati e squadre
+        filtrabile per paese, campionato o nazionale.
       </p>
+      <div class="hero-note">Versione demo interattiva pronta da collegare a feed reali.</div>
     </section>
 
-    <section class="stats">
-      <div class="stat">
-        <strong>90'</strong>
-        <p>Un linguaggio visivo rapido, leggibile e adatto alla tensione della gara.</p>
-      </div>
-      <div class="stat">
-        <strong>11</strong>
-        <p>Spazio per squadre, lineup, momenti chiave e storytelling di partita.</p>
-      </div>
-      <div class="stat">
-        <strong>Live</strong>
-        <p>Perfetto per attivazioni in tempo reale, scoreboard e contenuti matchday.</p>
-      </div>
-    </section>
+    <nav class="quick-nav">
+      <a href="#notizie">
+        <strong>Notizie</strong>
+        Le ultime storie del calcio in evidenza
+      </a>
+      <a href="#risultati">
+        <strong>Risultati</strong>
+        Live match e partite del giorno
+      </a>
+      <a href="#calciatori">
+        <strong>Calciatori</strong>
+        Ricerca player con statistiche e carriera
+      </a>
+      <a href="#campionati">
+        <strong>Campionati / Squadre</strong>
+        Cerca paesi, leghe, club e nazionali
+      </a>
+    </nav>
 
-    <section class="story">
-      <p>
-        Questa pagina puo diventare la base per sezioni su campionati, partite, sponsor,
-        calendari o highlights video, mantenendo un'identita visiva sportiva e professionale.
-      </p>
-    </section>
+    <div class="layout">
+      <section id="notizie" class="block">
+        <div class="section-head">
+          <div>
+            <h2>Notizie</h2>
+            <p>
+              Qui trovi un layout pronto per tutte le ultime notizie del calcio, con card editoriali,
+              etichette e focus sulle storie piu importanti.
+            </p>
+          </div>
+          <div class="chips">
+            <span class="chip">Breaking</span>
+            <span class="chip">Mercato</span>
+            <span class="chip">Champions</span>
+          </div>
+        </div>
+        <div class="news-grid">
+          <article class="card">
+            <h3>Big match del weekend: le sfide da seguire</h3>
+            <p>Anteprima delle partite piu attese con focus su forma, assenze e possibili protagonisti.</p>
+            <div class="meta-row">
+              <span class="chip">Serie A</span>
+              <span class="chip">Ultima ora</span>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Mercato: i nomi piu caldi tra top club e outsider</h3>
+            <p>Una sezione dedicata alle trattative, alle ufficialita e alle voci che muovono il mercato.</p>
+            <div class="meta-row">
+              <span class="chip">Calciomercato</span>
+              <span class="chip">Analisi</span>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Europa in campo: coppe, calendari e risultati chiave</h3>
+            <p>Spazio per coprire Champions, Europa e Conference con titoli veloci e contenuti in evidenza.</p>
+            <div class="meta-row">
+              <span class="chip">Europa</span>
+              <span class="chip">Top story</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="risultati" class="block">
+        <div class="section-head">
+          <div>
+            <h2>Risultati</h2>
+            <p>
+              Una vista pensata per partite in diretta e risultati del giorno. Le card qui sotto
+              simulano il comportamento di un live center.
+            </p>
+          </div>
+          <div class="chips">
+            <span class="chip status-live">Live</span>
+            <span class="chip status-today">Oggi</span>
+          </div>
+        </div>
+        <div class="results-grid">
+          <article class="card">
+            <div class="chips">
+              <span class="chip status-live">Live 67'</span>
+              <span class="chip">Serie A</span>
+            </div>
+            <div class="scoreline">
+              <span>Inter</span>
+              <span class="score">2 - 1</span>
+              <span>Milan</span>
+            </div>
+            <p>Possesso alto, due occasioni consecutive e finale di gara apertissimo.</p>
+          </article>
+          <article class="card">
+            <div class="chips">
+              <span class="chip status-live">Live 54'</span>
+              <span class="chip">Premier League</span>
+            </div>
+            <div class="scoreline">
+              <span>Arsenal</span>
+              <span class="score">1 - 1</span>
+              <span>Liverpool</span>
+            </div>
+            <p>Partita intensa, ritmi alti e tante transizioni in entrambe le meta campo.</p>
+          </article>
+          <article class="card">
+            <div class="chips">
+              <span class="chip status-today">Oggi 20:45</span>
+              <span class="chip">Liga</span>
+            </div>
+            <div class="scoreline">
+              <span>Barcelona</span>
+              <span class="score">vs</span>
+              <span>Atletico</span>
+            </div>
+            <p>Preview della sfida con informazioni su probabili formazioni e stato di forma.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="calciatori" class="block">
+        <div class="section-head">
+          <div>
+            <h2>Calciatori</h2>
+            <p>
+              Cerca un calciatore per vedere ruolo, eta, club, statistiche principali e carriera.
+              La ricerca filtra nome, club, nazionale e posizione.
+            </p>
+          </div>
+        </div>
+        <div class="search-panel">
+          <label for="player-search">Cerca calciatori</label>
+          <input id="player-search" type="search" placeholder="Esempio: Haaland, Italia, centrocampista, Real Madrid">
+        </div>
+        <div id="players-grid" class="players-grid"></div>
+      </section>
+
+      <section id="campionati" class="block">
+        <div class="section-head">
+          <div>
+            <h2>Campionati / Squadre</h2>
+            <p>
+              Cerca campionati, squadre, nazionali o semplicemente un paese. Selezionando il paese
+              trovi i principali campionati professionistici e giovanili.
+            </p>
+          </div>
+        </div>
+        <div class="search-panel">
+          <label for="league-search">Cerca nazioni, campionati, club o nazionali</label>
+          <input id="league-search" type="search" placeholder="Esempio: Italia, Premier League, Argentina, primavera, nazionale">
+        </div>
+        <div id="countries-grid" class="countries-grid"></div>
+      </section>
+    </div>
   </main>
 
   <footer>
     &copy; 2026 SPORT 360&deg;
   </footer>
+
+  <script>
+    const players = [
+      {
+        name: "Kylian Mbappe",
+        role: "Attaccante",
+        age: 26,
+        club: "Real Madrid",
+        nation: "Francia",
+        stats: ["Gol: 31", "Assist: 8", "Presenze: 39"],
+        career: ["Monaco", "Paris Saint-Germain", "Real Madrid"]
+      },
+      {
+        name: "Erling Haaland",
+        role: "Attaccante",
+        age: 24,
+        club: "Manchester City",
+        nation: "Norvegia",
+        stats: ["Gol: 34", "Assist: 6", "Presenze: 37"],
+        career: ["Bryne", "Molde", "RB Salzburg", "Borussia Dortmund", "Manchester City"]
+      },
+      {
+        name: "Jude Bellingham",
+        role: "Centrocampista",
+        age: 21,
+        club: "Real Madrid",
+        nation: "Inghilterra",
+        stats: ["Gol: 17", "Assist: 11", "Presenze: 41"],
+        career: ["Birmingham City", "Borussia Dortmund", "Real Madrid"]
+      },
+      {
+        name: "Lautaro Martinez",
+        role: "Attaccante",
+        age: 27,
+        club: "Inter",
+        nation: "Argentina",
+        stats: ["Gol: 24", "Assist: 5", "Presenze: 36"],
+        career: ["Racing Club", "Inter"]
+      },
+      {
+        name: "Kevin De Bruyne",
+        role: "Centrocampista",
+        age: 33,
+        club: "Manchester City",
+        nation: "Belgio",
+        stats: ["Gol: 8", "Assist: 16", "Presenze: 29"],
+        career: ["Genk", "Chelsea", "Werder Brema", "Wolfsburg", "Manchester City"]
+      },
+      {
+        name: "Vinicius Junior",
+        role: "Ala",
+        age: 24,
+        club: "Real Madrid",
+        nation: "Brasile",
+        stats: ["Gol: 21", "Assist: 10", "Presenze: 35"],
+        career: ["Flamengo", "Real Madrid"]
+      },
+      {
+        name: "Rodri",
+        role: "Mediano",
+        age: 28,
+        club: "Manchester City",
+        nation: "Spagna",
+        stats: ["Gol: 9", "Assist: 7", "Presenze: 38"],
+        career: ["Villarreal", "Atletico Madrid", "Manchester City"]
+      },
+      {
+        name: "Bukayo Saka",
+        role: "Ala destra",
+        age: 23,
+        club: "Arsenal",
+        nation: "Inghilterra",
+        stats: ["Gol: 18", "Assist: 13", "Presenze: 40"],
+        career: ["Arsenal"]
+      },
+      {
+        name: "Victor Osimhen",
+        role: "Attaccante",
+        age: 26,
+        club: "Napoli",
+        nation: "Nigeria",
+        stats: ["Gol: 20", "Assist: 4", "Presenze: 30"],
+        career: ["Wolfsburg", "Charleroi", "Lille", "Napoli"]
+      },
+      {
+        name: "Nicolo Barella",
+        role: "Centrocampista",
+        age: 28,
+        club: "Inter",
+        nation: "Italia",
+        stats: ["Gol: 6", "Assist: 9", "Presenze: 37"],
+        career: ["Cagliari", "Inter"]
+      },
+      {
+        name: "Khvicha Kvaratskhelia",
+        role: "Ala sinistra",
+        age: 24,
+        club: "Napoli",
+        nation: "Georgia",
+        stats: ["Gol: 14", "Assist: 11", "Presenze: 34"],
+        career: ["Dinamo Tbilisi", "Rubin Kazan", "Dinamo Batumi", "Napoli"]
+      },
+      {
+        name: "Florian Wirtz",
+        role: "Trequartista",
+        age: 22,
+        club: "Bayer Leverkusen",
+        nation: "Germania",
+        stats: ["Gol: 15", "Assist: 17", "Presenze: 39"],
+        career: ["Colonia", "Bayer Leverkusen"]
+      }
+    ];
+
+    const countries = [
+      { country: "Argentina", letter: "A", nationalTeam: "Argentina", leagues: ["Primera Division", "Primera Nacional", "Primera B Metropolitana", "Torneo Proyeccion"], teams: ["Boca Juniors", "River Plate", "Racing Club"] },
+      { country: "Australia", letter: "A", nationalTeam: "Australia", leagues: ["A-League Men", "National Premier Leagues", "A-League Youth"], teams: ["Sydney FC", "Melbourne Victory", "Adelaide United"] },
+      { country: "Belgio", letter: "B", nationalTeam: "Belgio", leagues: ["Belgian Pro League", "Challenger Pro League", "Elite 1 U23"], teams: ["Anderlecht", "Club Brugge", "Genk"] },
+      { country: "Brasile", letter: "B", nationalTeam: "Brasile", leagues: ["Serie A Brasileirao", "Serie B", "Copa do Brasil", "Brasileirao Sub-20"], teams: ["Flamengo", "Palmeiras", "Santos"] },
+      { country: "Canada", letter: "C", nationalTeam: "Canada", leagues: ["Canadian Premier League", "League1 Ontario", "U Sports"], teams: ["Forge FC", "Cavalry FC", "Pacific FC"] },
+      { country: "Cile", letter: "C", nationalTeam: "Cile", leagues: ["Primera Division", "Primera B", "Campeonato Proyeccion"], teams: ["Colo-Colo", "Universidad de Chile", "Universidad Catolica"] },
+      { country: "Danimarca", letter: "D", nationalTeam: "Danimarca", leagues: ["Superliga", "1st Division", "U19 League"], teams: ["Copenhagen", "Midtjylland", "Brondby"] },
+      { country: "Egitto", letter: "E", nationalTeam: "Egitto", leagues: ["Egyptian Premier League", "Second Division A", "Youth League"], teams: ["Al Ahly", "Zamalek", "Pyramids"] },
+      { country: "Francia", letter: "F", nationalTeam: "Francia", leagues: ["Ligue 1", "Ligue 2", "Championnat National", "Championnat National U19"], teams: ["Paris Saint-Germain", "Marseille", "Monaco"] },
+      { country: "Germania", letter: "G", nationalTeam: "Germania", leagues: ["Bundesliga", "2. Bundesliga", "3. Liga", "Junioren Bundesliga"], teams: ["Bayern Monaco", "Borussia Dortmund", "Bayer Leverkusen"] },
+      { country: "Grecia", letter: "G", nationalTeam: "Grecia", leagues: ["Super League Greece", "Super League 2", "K19 Super League"], teams: ["Olympiacos", "Panathinaikos", "PAOK"] },
+      { country: "Inghilterra", letter: "I", nationalTeam: "Inghilterra", leagues: ["Premier League", "Championship", "League One", "League Two", "Premier League 2", "U18 Premier League"], teams: ["Arsenal", "Manchester City", "Liverpool"] },
+      { country: "Irlanda", letter: "I", nationalTeam: "Irlanda", leagues: ["League of Ireland Premier Division", "First Division", "National U19 League"], teams: ["Shamrock Rovers", "Bohemians", "Derry City"] },
+      { country: "Italia", letter: "I", nationalTeam: "Italia", leagues: ["Serie A", "Serie B", "Serie C", "Primavera 1", "Primavera 2"], teams: ["Inter", "Juventus", "Milan"] },
+      { country: "Giappone", letter: "J", nationalTeam: "Giappone", leagues: ["J1 League", "J2 League", "J3 League", "Prince Takamado U18"], teams: ["Kawasaki Frontale", "Yokohama F. Marinos", "Urawa Reds"] },
+      { country: "Marocco", letter: "M", nationalTeam: "Marocco", leagues: ["Botola Pro", "Botola 2", "U21 National"], teams: ["Wydad", "Raja Casablanca", "FAR Rabat"] },
+      { country: "Messico", letter: "M", nationalTeam: "Messico", leagues: ["Liga MX", "Liga de Expansion MX", "Liga Premier", "Sub-23 Liga MX"], teams: ["Club America", "Chivas", "Monterrey"] },
+      { country: "Nigeria", letter: "N", nationalTeam: "Nigeria", leagues: ["Nigeria Premier Football League", "NNL", "Youth League"], teams: ["Enyimba", "Rangers International", "Remo Stars"] },
+      { country: "Norvegia", letter: "N", nationalTeam: "Norvegia", leagues: ["Eliteserien", "1. divisjon", "Nasjonal G19"], teams: ["Bodo/Glimt", "Molde", "Rosenborg"] },
+      { country: "Olanda", letter: "O", nationalTeam: "Olanda", leagues: ["Eredivisie", "Eerste Divisie", "Onder 21 Divisie"], teams: ["Ajax", "PSV", "Feyenoord"] },
+      { country: "Polonia", letter: "P", nationalTeam: "Polonia", leagues: ["Ekstraklasa", "I Liga", "Centralna Liga Juniorow"], teams: ["Legia Varsavia", "Lech Poznan", "Rakow"] },
+      { country: "Portogallo", letter: "P", nationalTeam: "Portogallo", leagues: ["Liga Portugal", "Liga Portugal 2", "Liga 3", "Liga Revelacao U23"], teams: ["Benfica", "Porto", "Sporting"] },
+      { country: "Qatar", letter: "Q", nationalTeam: "Qatar", leagues: ["Qatar Stars League", "Second Division", "QFA U23 League"], teams: ["Al Sadd", "Al Duhail", "Al Rayyan"] },
+      { country: "Romania", letter: "R", nationalTeam: "Romania", leagues: ["Liga I", "Liga II", "Liga de Tineret"], teams: ["FCSB", "CFR Cluj", "Universitatea Craiova"] },
+      { country: "Scozia", letter: "S", nationalTeam: "Scozia", leagues: ["Scottish Premiership", "Championship", "League One", "Reserve League"], teams: ["Celtic", "Rangers", "Hearts"] },
+      { country: "Spagna", letter: "S", nationalTeam: "Spagna", leagues: ["La Liga", "La Liga 2", "Primera Federacion", "Division de Honor Juvenil"], teams: ["Real Madrid", "Barcelona", "Atletico Madrid"] },
+      { country: "Svezia", letter: "S", nationalTeam: "Svezia", leagues: ["Allsvenskan", "Superettan", "P19 Allsvenskan"], teams: ["Malmo FF", "AIK", "Djurgarden"] },
+      { country: "Svizzera", letter: "S", nationalTeam: "Svizzera", leagues: ["Swiss Super League", "Challenge League", "U18 Elite"], teams: ["Young Boys", "Basel", "Zurigo"] },
+      { country: "Turchia", letter: "T", nationalTeam: "Turchia", leagues: ["Super Lig", "1. Lig", "U19 Elit A"], teams: ["Galatasaray", "Fenerbahce", "Besiktas"] },
+      { country: "Uruguay", letter: "U", nationalTeam: "Uruguay", leagues: ["Primera Division", "Segunda Division", "Formativas AUF"], teams: ["Penarol", "Nacional", "Defensor Sporting"] },
+      { country: "Stati Uniti", letter: "U", nationalTeam: "USA", leagues: ["MLS", "USL Championship", "USL League One", "MLS Next Pro", "MLS Next"], teams: ["LAFC", "Inter Miami", "Seattle Sounders"] },
+      { country: "Venezuela", letter: "V", nationalTeam: "Venezuela", leagues: ["Primera Division", "Segunda Division", "Liga Futve Junior"], teams: ["Caracas FC", "Deportivo Tachira", "Monagas"] },
+      { country: "Galles", letter: "W", nationalTeam: "Galles", leagues: ["Cymru Premier", "Cymru North", "Cymru South", "Development League"], teams: ["The New Saints", "Bala Town", "Connah's Quay"] },
+      { country: "Kosovo", letter: "X", nationalTeam: "Kosovo", leagues: ["Football Superleague of Kosovo", "First League", "Youth Superleague"], teams: ["Ballkani", "Drita", "Prishtina"] },
+      { country: "Yemen", letter: "Y", nationalTeam: "Yemen", leagues: ["Yemeni League", "Second Division", "Youth Championship"], teams: ["Al Ahli Sanaa", "Al Tilal", "Al Shaab Ibb"] },
+      { country: "Zambia", letter: "Z", nationalTeam: "Zambia", leagues: ["Zambia Super League", "National Division One", "Youth Super League"], teams: ["Power Dynamos", "ZESCO United", "Nkana"] }
+    ];
+
+    const playerSearch = document.getElementById("player-search");
+    const leagueSearch = document.getElementById("league-search");
+    const playersGrid = document.getElementById("players-grid");
+    const countriesGrid = document.getElementById("countries-grid");
+
+    function renderPlayers(query = "") {
+      const normalized = query.trim().toLowerCase();
+      const filtered = players.filter((player) => {
+        const haystack = [
+          player.name,
+          player.role,
+          player.club,
+          player.nation,
+          ...player.career
+        ].join(" ").toLowerCase();
+        return haystack.includes(normalized);
+      });
+
+      if (!filtered.length) {
+        playersGrid.innerHTML = '<div class="empty-state">Nessun calciatore trovato. Prova con nome, club, ruolo o nazionale.</div>';
+        return;
+      }
+
+      playersGrid.innerHTML = filtered.map((player) => `
+        <article class="card">
+          <h3>${player.name}</h3>
+          <div class="chips">
+            <span class="chip">${player.role}</span>
+            <span class="chip">${player.club}</span>
+            <span class="chip">${player.nation}</span>
+            <span class="chip">${player.age} anni</span>
+          </div>
+          <div class="chips" style="margin-top: 14px;">
+            ${player.stats.map((stat) => `<span class="chip">${stat}</span>`).join("")}
+          </div>
+          <ul class="career-list">
+            ${player.career.map((club) => `<li>${club}</li>`).join("")}
+          </ul>
+        </article>
+      `).join("");
+    }
+
+    function renderCountries(query = "") {
+      const normalized = query.trim().toLowerCase();
+      const filtered = countries.filter((country) => {
+        const haystack = [
+          country.country,
+          country.nationalTeam,
+          ...country.leagues,
+          ...country.teams
+        ].join(" ").toLowerCase();
+        return haystack.includes(normalized);
+      });
+
+      if (!filtered.length) {
+        countriesGrid.innerHTML = '<div class="empty-state">Nessun paese o campionato trovato. Prova con una nazione, un club, una nazionale o una lega.</div>';
+        return;
+      }
+
+      countriesGrid.innerHTML = filtered.map((country) => `
+        <article class="card">
+          <div class="country-title">
+            <h3>${country.country}</h3>
+            <span class="letter">${country.letter}</span>
+          </div>
+          <div class="chips">
+            <span class="chip">Nazionale: ${country.nationalTeam}</span>
+          </div>
+          <h4 style="margin-top: 16px;">Campionati</h4>
+          <ul class="league-list">
+            ${country.leagues.map((league) => `<li>${league}</li>`).join("")}
+          </ul>
+          <h4 style="margin-top: 16px;">Squadre in evidenza</h4>
+          <div class="chips">
+            ${country.teams.map((team) => `<span class="chip">${team}</span>`).join("")}
+          </div>
+        </article>
+      `).join("");
+    }
+
+    playerSearch.addEventListener("input", (event) => {
+      renderPlayers(event.target.value);
+    });
+
+    leagueSearch.addEventListener("input", (event) => {
+      renderCountries(event.target.value);
+    });
+
+    renderPlayers();
+    renderCountries();
+  </script>
 </body>
 </html>
