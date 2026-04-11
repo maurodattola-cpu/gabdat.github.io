@@ -384,6 +384,7 @@
 
     .card {
       position: relative;
+      display: block;
       padding: 26px;
       border-radius: 24px;
       background: linear-gradient(180deg, rgba(15, 23, 42, 0.82), rgba(15, 23, 42, 0.55));
@@ -392,6 +393,7 @@
       overflow: hidden;
       transform: translateY(0);
       transition: transform 0.25s ease, border-color 0.25s ease;
+      text-decoration: none;
     }
 
     .card::before {
@@ -425,24 +427,6 @@
       margin: 0;
       color: var(--muted);
       line-height: 1.6;
-    }
-
-    .contact-box {
-      padding: 30px;
-      border-radius: 28px;
-      background: linear-gradient(135deg, rgba(249, 115, 22, 0.14), rgba(56, 189, 248, 0.12));
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: var(--shadow);
-    }
-
-    .contact-box p {
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .contact-box a {
-      color: #fff;
-      font-weight: 700;
     }
 
     footer {
@@ -514,8 +498,7 @@
         gap: 14px;
       }
 
-      .hero-panel,
-      .contact-box {
+      .hero-panel {
         padding: 24px;
       }
 
@@ -557,10 +540,10 @@
     </div>
 
     <div class="hero-panel">
-      <div class="eyebrow">SPORT 360°</div>
+      <div class="eyebrow">SPORT 360&deg;</div>
       <div class="hero-grid">
         <div>
-          <h1>SPORT 360°</h1>
+          <h1>SPORT 360&deg;</h1>
           <p>
             Ho trasformato la hero in una scena piu dinamica con elementi ispirati
             allo sport: movimenti fluidi, glow da scoreboard e accenti visivi che
@@ -607,21 +590,21 @@
       dinamica e coerente con il taglio visivo della pagina.
     </p>
     <div class="cards">
-      <article class="card">
+      <a class="card" href="tennis.html">
         <div class="card-badge">01</div>
         <h3>Tennis</h3>
         <p>Visual energici e ritmo rapido per raccontare match, tornei e performance in campo.</p>
-      </article>
-      <article class="card">
+      </a>
+      <a class="card" href="calcio.html">
         <div class="card-badge">02</div>
         <h3>Calcio</h3>
         <p>Contenuti coinvolgenti per squadre, eventi e fan experience con forte impatto visivo.</p>
-      </article>
-      <article class="card">
+      </a>
+      <a class="card" href="nuoto.html">
         <div class="card-badge">03</div>
         <h3>Nuoto</h3>
         <p>Animazioni fluide e atmosfere acquatiche per valorizzare gare, corsi e brand sportivi.</p>
-      </article>
+      </a>
     </div>
   </section>
 
